@@ -1,0 +1,61 @@
+[0.000000] (-) TimerEvent: {}
+[0.000292] (oculus_gz_navigator) JobQueued: {'identifier': 'oculus_gz_navigator', 'dependencies': OrderedDict()}
+[0.000389] (oculus_gz_navigator) JobStarted: {'identifier': 'oculus_gz_navigator'}
+[0.013665] (oculus_gz_navigator) JobProgress: {'identifier': 'oculus_gz_navigator', 'progress': 'cmake'}
+[0.013772] (oculus_gz_navigator) Command: {'cmd': ['/usr/bin/cmake', '/home/patricia/Escritorio/TFG/src/oculus_gz_navigator', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/patricia/Escritorio/TFG/install/oculus_gz_navigator'], 'cwd': '/home/patricia/Escritorio/TFG/build/oculus_gz_navigator', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'patricia'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/patricia'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '2747'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=360fb5f83247826c703aebff636929d9'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'patricia'), ('_', '/home/patricia/.local/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'patricia'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/patricia/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/patricia-pc:@/tmp/.ICE-unix/2747,unix/patricia-pc:/tmp/.ICE-unix/2747'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/a0b07f79_27a1_431c_a078_7d8e11b14614'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'es_ES.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.106'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/patricia/Escritorio/TFG/build/oculus_gz_navigator'), ('LC_ALL', 'es_ES.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=360fb5f83247826c703aebff636929d9'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.089757] (oculus_gz_navigator) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.3.0\n'}
+[0.099835] (-) TimerEvent: {}
+[0.137339] (oculus_gz_navigator) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.3.0\n'}
+[0.143757] (oculus_gz_navigator) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.196209] (oculus_gz_navigator) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.199908] (-) TimerEvent: {}
+[0.201183] (oculus_gz_navigator) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.201453] (oculus_gz_navigator) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.201977] (oculus_gz_navigator) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.204769] (oculus_gz_navigator) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.251625] (oculus_gz_navigator) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.257094] (oculus_gz_navigator) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.257324] (oculus_gz_navigator) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.257843] (oculus_gz_navigator) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.261945] (oculus_gz_navigator) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.2 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.300028] (-) TimerEvent: {}
+[0.372442] (oculus_gz_navigator) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3.10 (found version "3.10.6") found components: Interpreter \n'}
+[0.400176] (-) TimerEvent: {}
+[0.413422] (oculus_gz_navigator) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.461891] (oculus_gz_navigator) StdoutLine: {'line': b'-- Found rclcpp: 16.0.1 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.500263] (-) TimerEvent: {}
+[0.507336] (oculus_gz_navigator) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.3 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.510943] (oculus_gz_navigator) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.3 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.517854] (oculus_gz_navigator) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.3 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.530083] (oculus_gz_navigator) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.546647] (oculus_gz_navigator) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.594253] (oculus_gz_navigator) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.0 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.596191] (oculus_gz_navigator) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.1 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.600326] (-) TimerEvent: {}
+[0.657671] (oculus_gz_navigator) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.673685] (oculus_gz_navigator) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.700163] (oculus_gz_navigator) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.700383] (-) TimerEvent: {}
+[0.800593] (-) TimerEvent: {}
+[0.806924] (oculus_gz_navigator) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:11 (find_package):\n'}
+[0.807065] (oculus_gz_navigator) StderrLine: {'line': b'  By not providing "Findgazebo_classic.cmake" in CMAKE_MODULE_PATH this\n'}
+[0.807130] (oculus_gz_navigator) StderrLine: {'line': b'  project has asked CMake to find a package configuration file provided by\n'}
+[0.807184] (oculus_gz_navigator) StderrLine: {'line': b'  "gazebo_classic", but CMake did not find one.\n'}
+[0.807238] (oculus_gz_navigator) StderrLine: {'line': b'\n'}
+[0.807282] (oculus_gz_navigator) StderrLine: {'line': b'  Could not find a package configuration file provided by "gazebo_classic"\n'}
+[0.807323] (oculus_gz_navigator) StderrLine: {'line': b'  with any of the following names:\n'}
+[0.807364] (oculus_gz_navigator) StderrLine: {'line': b'\n'}
+[0.807405] (oculus_gz_navigator) StderrLine: {'line': b'    gazebo_classicConfig.cmake\n'}
+[0.807447] (oculus_gz_navigator) StderrLine: {'line': b'    gazebo_classic-config.cmake\n'}
+[0.807486] (oculus_gz_navigator) StderrLine: {'line': b'\n'}
+[0.807527] (oculus_gz_navigator) StderrLine: {'line': b'  Add the installation prefix of "gazebo_classic" to CMAKE_PREFIX_PATH or set\n'}
+[0.807568] (oculus_gz_navigator) StderrLine: {'line': b'  "gazebo_classic_DIR" to a directory containing one of the above files.  If\n'}
+[0.807608] (oculus_gz_navigator) StderrLine: {'line': b'  "gazebo_classic" provides a separate development package or SDK, be sure it\n'}
+[0.807650] (oculus_gz_navigator) StderrLine: {'line': b'  has been installed.\n'}
+[0.807690] (oculus_gz_navigator) StderrLine: {'line': b'\n'}
+[0.807730] (oculus_gz_navigator) StderrLine: {'line': b'\x1b[0m\n'}
+[0.807771] (oculus_gz_navigator) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.807817] (oculus_gz_navigator) StdoutLine: {'line': b'See also "/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/CMakeFiles/CMakeOutput.log".\n'}
+[0.812688] (oculus_gz_navigator) CommandEnded: {'returncode': 1}
+[0.832190] (oculus_gz_navigator) JobEnded: {'identifier': 'oculus_gz_navigator', 'rc': 1}
+[0.842594] (-) EventReactorShutdown: {}

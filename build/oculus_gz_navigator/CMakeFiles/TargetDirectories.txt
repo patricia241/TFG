@@ -1,0 +1,9 @@
+/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/CMakeFiles/uninstall.dir
+/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/CMakeFiles/oculus_gz_navigator_uninstall.dir
+/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/CMakeFiles/test.dir
+/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/CMakeFiles/edit_cache.dir
+/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/CMakeFiles/rebuild_cache.dir
+/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/CMakeFiles/list_install_components.dir
+/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/CMakeFiles/install.dir
+/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/CMakeFiles/install/local.dir
+/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/CMakeFiles/install/strip.dir
