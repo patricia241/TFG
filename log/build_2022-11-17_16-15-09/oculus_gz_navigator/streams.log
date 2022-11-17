@@ -1,0 +1,24 @@
+[0.016s] Invoking command in '/home/patricia/Escritorio/TFG/build/oculus_gz_navigator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/patricia/Escritorio/TFG/build/oculus_gz_navigator -- -j8 -l8
+[0.073s] Invoked command in '/home/patricia/Escritorio/TFG/build/oculus_gz_navigator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/patricia/Escritorio/TFG/build/oculus_gz_navigator -- -j8 -l8
+[0.089s] Invoking command in '/home/patricia/Escritorio/TFG/build/oculus_gz_navigator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/patricia/Escritorio/TFG/build/oculus_gz_navigator
+[0.094s] -- Install configuration: ""
+[0.094s] -- Execute custom install script
+[0.094s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/launch/empty_world.launch.py
+[0.094s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/launch/oculus_keyboard_launch.py
+[0.094s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/launch/oculus_nav_keyboard_op_launch.py
+[0.095s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/ament_index/resource_index/package_run_dependencies/oculus_gz_navigator
+[0.095s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/ament_index/resource_index/parent_prefix_path/oculus_gz_navigator
+[0.095s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/environment/ament_prefix_path.sh
+[0.095s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/environment/ament_prefix_path.dsv
+[0.095s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/environment/path.sh
+[0.095s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/environment/path.dsv
+[0.095s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/local_setup.bash
+[0.095s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/local_setup.sh
+[0.095s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/local_setup.zsh
+[0.095s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/local_setup.dsv
+[0.095s] -- Symlinking: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/package.dsv
+[0.100s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/ament_index/resource_index/packages/oculus_gz_navigator
+[0.100s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/cmake/oculus_gz_navigatorConfig.cmake
+[0.100s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/cmake/oculus_gz_navigatorConfig-version.cmake
+[0.100s] -- Up-to-date symlink: /home/patricia/Escritorio/TFG/install/oculus_gz_navigator/share/oculus_gz_navigator/package.xml
+[0.102s] Invoked command in '/home/patricia/Escritorio/TFG/build/oculus_gz_navigator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/patricia/Escritorio/TFG/build/oculus_gz_navigator

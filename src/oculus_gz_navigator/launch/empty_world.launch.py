@@ -5,15 +5,15 @@ from launch.conditions import IfCondition, UnlessCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import Command, LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
+from ament_index_python.packages import get_package_share_directory
  
 def generate_launch_description():
  
   # Set the path to the Gazebo package
-  pkg_gazebo = FindPackageShare(package='Gazebo').find('gazebo_ros')   
+  pkg_gazebo = os.path('/home/patricia/gazebo-classic/build/gazebo/gazebo')  
    
   # Set the path to this package.
-  pkg_share = FindPackageShare(package='oculus_gz_navigator').find('oculus_gz_navigator')
+  pkg_share = get_package_share_directory('oculus_gz_navigator') 
  
   # Set the path to the world file
   world_file_name = 'empty.world'
