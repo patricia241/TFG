@@ -1,4 +1,0 @@
-Invoking command in '/home/patricia/Escritorio/TFG/build/oculus_gz_navigator': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/patricia/Escritorio/TFG/build/oculus_gz_navigator -- -j8 -l8
-Invoked command in '/home/patricia/Escritorio/TFG/build/oculus_gz_navigator' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/patricia/Escritorio/TFG/build/oculus_gz_navigator -- -j8 -l8
-Invoking command in '/home/patricia/Escritorio/TFG/build/oculus_gz_navigator': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/patricia/Escritorio/TFG/build/oculus_gz_navigator
-Invoked command in '/home/patricia/Escritorio/TFG/build/oculus_gz_navigator' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/patricia/Escritorio/TFG/build/oculus_gz_navigator

@@ -1,8 +1,0 @@
-source;share/oculus_gz_navigator/hook/cmake_prefix_path.ps1
-source;share/oculus_gz_navigator/hook/cmake_prefix_path.dsv
-source;share/oculus_gz_navigator/hook/cmake_prefix_path.sh
-source;share/oculus_gz_navigator/local_setup.bash
-source;share/oculus_gz_navigator/local_setup.dsv
-source;share/oculus_gz_navigator/local_setup.ps1
-source;share/oculus_gz_navigator/local_setup.sh
-source;share/oculus_gz_navigator/local_setup.zsh

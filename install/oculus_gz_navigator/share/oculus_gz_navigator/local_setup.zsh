@@ -1,1 +1,0 @@
-/home/patricia/Escritorio/TFG/build/oculus_gz_navigator/ament_cmake_environment_hooks/local_setup.zsh
