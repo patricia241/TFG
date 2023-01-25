@@ -8,11 +8,12 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(Gazebo REQUIRED)
+find_package(gazebo_ros REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 
 set(dependencies
     rclcpp
-    Gazebo
+    gazebo_ros
 )
 
 include_directories(include)
@@ -21,8 +22,8 @@ install(DIRECTORY include/
   DESTINATION include/
 )
 
-install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}
+install(DIRECTORY launch models worlds
+    DESTINATION share/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)
@@ -36,5 +37,8 @@ if(BUILD_TESTING)
   set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 endif()
+
+
+ament_export_dependencies(gazebo_ros)
 
 ament_package()
