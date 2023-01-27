@@ -24,16 +24,17 @@ set(dependencies
 
 include_directories(include)
 
-add_library(hello_world_plugin SHARED
-  src/hello_world_plugin.cpp
+add_library(camera_plugin SHARED
+  src/camera_plugin.cpp
 )
-target_include_directories(hello_world_plugin PUBLIC include)
-ament_target_dependencies(hello_world_plugin
+target_include_directories(camera_plugin PUBLIC include)
+ament_target_dependencies(camera_plugin
+  "gazebo"
   "gazebo_dev"
   "gazebo_ros"
   "rclcpp"
 )
-ament_export_libraries(gazebo_ros_gridmap)
+ament_export_libraries(camera_plugin)
 
 install(DIRECTORY include/
   DESTINATION include/
@@ -44,7 +45,7 @@ install(DIRECTORY launch models worlds
 )
 
 install(TARGETS
-  hello_world_plugin
+  camera_plugin
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin)

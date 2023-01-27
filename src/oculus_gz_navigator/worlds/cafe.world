@@ -73,6 +73,12 @@
       <uri>model://cafe_table</uri>
     </include>
 
+    <include>
+      <name>oculus_camera</name>
+      <pose>0 -18 8.0 0 0.523 1.5707</pose>
+      <uri>model://mycamera</uri>
+    </include>
+
     <!-- Usage: modify the <pose> elements of each actor to change their
          starting location. Modify the <target> elements of each actor to
          change their destination. The <target_weight> can be used to
