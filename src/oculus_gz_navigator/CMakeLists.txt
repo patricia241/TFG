@@ -9,14 +9,31 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(gazebo_ros REQUIRED)
+find_package(gazebo REQUIRED)
+find_package(gazebo_dev REQUIRED)
+find_package(gazebo_msgs REQUIRED)
 find_package(ament_cmake_ros REQUIRED)
 
 set(dependencies
     rclcpp
+    gazebo
     gazebo_ros
+    gazebo_dev
+    gazebo_msgs
 )
 
 include_directories(include)
+
+add_library(hello_world_plugin SHARED
+  src/hello_world_plugin.cpp
+)
+target_include_directories(hello_world_plugin PUBLIC include)
+ament_target_dependencies(hello_world_plugin
+  "gazebo_dev"
+  "gazebo_ros"
+  "rclcpp"
+)
+ament_export_libraries(gazebo_ros_gridmap)
 
 install(DIRECTORY include/
   DESTINATION include/
@@ -25,6 +42,12 @@ install(DIRECTORY include/
 install(DIRECTORY launch models worlds
     DESTINATION share/${PROJECT_NAME}
 )
+
+install(TARGETS
+  hello_world_plugin
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -39,6 +62,10 @@ if(BUILD_TESTING)
 endif()
 
 
+ament_export_include_directories(include)
+ament_export_dependencies(rclcpp)
+ament_export_dependencies(gazebo_dev)
+ament_export_dependencies(gazebo_msgs)
 ament_export_dependencies(gazebo_ros)
 
 ament_package()
