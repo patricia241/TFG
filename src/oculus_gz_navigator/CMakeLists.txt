@@ -68,5 +68,6 @@ ament_export_dependencies(rclcpp)
 ament_export_dependencies(gazebo_dev)
 ament_export_dependencies(gazebo_msgs)
 ament_export_dependencies(gazebo_ros)
+ament_export_dependencies(gazebo)
 
 ament_package()
