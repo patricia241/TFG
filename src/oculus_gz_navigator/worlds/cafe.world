@@ -75,7 +75,7 @@
 
     <include>
       <name>oculus_camera</name>
-      <pose>0 -18 8.0 0 0.523 1.5707</pose>
+      <pose>0 -8.0 1.8 3.1415 0 1.5707</pose>
       <uri>model://mycamera</uri>
     </include>
 
