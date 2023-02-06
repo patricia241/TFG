@@ -1,61 +1,53 @@
-/*
- * Copyright (C) 2012 Open Source Robotics Foundation
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
-*/
+#include <chrono>
+
 #include "gazebo/gazebo.hh"
-#include "gazebo/plugins/CameraPlugin.hh"
+#include "gazebo/physics/physics.hh"
+#include "gazebo/common/common.hh"
 
-namespace gazebo
+#include "gazebo_ros/node.hpp"
+#include "geometry_msgs/msg/pose.hpp"
+
+using namespace std::chrono_literals;
+
+namespace oculus_gz_navigator
 {
-  class CameraDump : public CameraPlugin
+  class CameraPositionPlugin : public gazebo::ModelPlugin
   {
+
     public: 
-        CameraDump() : CameraPlugin(), saveCount_(0)
-        {
-            printf("Hello World!\n");
+        void Load(gazebo::physics::ModelPtr _model, sdf::ElementPtr _sdf) {
+            std::cout << "-----------------------------------------" << std::endl;
+            std::cout << "CAMERA POSITION PLUGIN" << std::endl;
+            std::cout << "-----------------------------------------" << std::endl;
+            std::cout << std::endl;
+
+            link_ = model->GetLink("link");
+
+            // ROS node
+            node_ = gazebo_ros::Node::Get(_sdf);
+
+            // ROS subscription
+            pose_sub_ = node_->create_subscription<geometry_msgs::msg::Pose>("camera_position", 10,
+                                                                              std::bind(&CameraPositionPlugin::camera_position_callback,
+                                                                                        this, std::placeholders::_1));
         }
+    private:
+        gazebo::physics::LinkPtr link_;
 
-        void Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf)
-        {
-            // Don't forget to load the camera plugin
-            CameraPlugin::Load(_parent, _sdf);
+        // GazeboROS node 
+        gazebo_ros::Node::SharedPtr node_;
+
+        // ROS subscriptor
+        rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr pose_sub_;
+
+        // If in msg Position I get (0, 0, 1) increment z position 1m. Rotation set directly with msg info. 
+        void camera_position_callback(const geometry_msgs::msg::Pose::SharedPtr msg) {
+            ignition::math::Pose3d pose = link_->WorldPose();
+            pose.Pos().x = pose.Pos().x + msg->position.x
+            link_->SetWorldPose(pose);
         }
-
-        // Update the controller
-        void OnNewFrame(const unsigned char *_image,
-            unsigned int _width, unsigned int _height, unsigned int _depth,
-            const std::string &_format)
-        {
-            char tmp[1024];
-            snprintf(tmp, sizeof(tmp), "/tmp/%s-%04d.jpg",
-                this->parentSensor->Camera()->Name().c_str(), this->saveCount_);
-
-            if (this->saveCount_ < 10)
-            {
-                this->parentSensor->Camera()->SaveFrame(
-                    _image, _width, _height, _depth, _format, tmp);
-                gzmsg << "Saving frame [" << this->saveCount_
-                    << "] as [" << tmp << "]\n";
-                this->saveCount_++;
-            }
-        }
-
-    private: 
-        int saveCount_;
   };
 
-  // Register this plugin with the simulator
-  GZ_REGISTER_SENSOR_PLUGIN(CameraDump)
-}
+  GZ_REGISTER_MODEL_PLUGIN(CameraPositionPlugin)
+
+} // namespace oculus_gz_navigator
