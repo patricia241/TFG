@@ -21,7 +21,7 @@ namespace oculus_gz_navigator
             std::cout << "-----------------------------------------" << std::endl;
             std::cout << std::endl;
 
-            link_ = model->GetLink("link");
+            link_ = _model->GetLink("link");
 
             // ROS node
             node_ = gazebo_ros::Node::Get(_sdf);
@@ -42,9 +42,15 @@ namespace oculus_gz_navigator
 
         // If in msg Position I get (0, 0, 1) increment z position 1m. Rotation set directly with msg info. 
         void camera_position_callback(const geometry_msgs::msg::Pose::SharedPtr msg) {
-            ignition::math::Pose3d pose = link_->WorldPose();
-            pose.Pos().x = pose.Pos().x + msg->position.x
-            link_->SetWorldPose(pose);
+          ignition::math::Vector3d accel(0, 0, 0); 
+          ignition::math::Pose3d pose = link_->WorldPose();
+
+          pose.Pos().X() = pose.Pos().X() + msg->position.x;
+          pose.Pos().Y() = pose.Pos().Y() + msg->position.y;
+          pose.Pos().Z() = pose.Pos().Z() + msg->position.z;
+          link_->SetWorldPose(pose);
+
+          link_->SetLinearVel(accel);
         }
   };
 
