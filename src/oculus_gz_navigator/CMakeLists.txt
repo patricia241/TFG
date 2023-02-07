@@ -9,36 +9,53 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(gazebo_ros REQUIRED)
-find_package(ament_cmake_ros REQUIRED)
+find_package(gazebo REQUIRED)
+find_package(gazebo_dev REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
-set(dependencies
-    rclcpp
-    gazebo_ros
+# Local includes
+include_directories(
+  include
+  ${gazebo_ros_INCLUDE_DIRS}
 )
 
-include_directories(include)
+#=============
+# Camera Gazebo plugin
+#=============
 
-install(DIRECTORY include/
-  DESTINATION include/
+add_library(
+  CameraPositionPlugin SHARED
+  src/camera_plugin.cpp
 )
 
-install(DIRECTORY launch models worlds
-    DESTINATION share/${PROJECT_NAME}
+ament_target_dependencies(
+  CameraPositionPlugin
+  geometry_msgs
+  gazebo_dev
+  gazebo_ros
+  rclcpp
 )
 
-if(BUILD_TESTING)
-  find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # comment the line when a copyright and license is added to all source files
-  set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # comment the line when this package is in a git repo and when
-  # a copyright and license is added to all source files
-  set(ament_cmake_cpplint_FOUND TRUE)
-  ament_lint_auto_find_test_dependencies()
-endif()
+#=============
+# Install
+#=============
 
+# Install targets
+install(
+  TARGETS CameraPositionPlugin
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
 
-ament_export_dependencies(gazebo_ros)
+## Install world and launch files
+install(
+  DIRECTORY models worlds launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
+#=============
+# Run ament macros
+#=============
 
 ament_package()
