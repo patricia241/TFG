@@ -8,4 +8,6 @@ Para lanzar el mundo de Gazebo:
 ros2 launch oculus_gz_navigator view_cafe_wrld.launch.py 
 ~~~
 
-Chequear que en la terminal donde has ejecutado este comando sale la traza **CAMERA POSITION PLUGIN**
+Chequear que en la terminal donde has ejecutado este comando sale la traza **CAMERA POSITION PLUGIN**  
+
+![](https://github.com/patricia241/TFG/blob/main/wiki_images/launch_example.png?raw=true)
