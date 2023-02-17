@@ -27,7 +27,7 @@ namespace oculus_gz_navigator
             node_ = gazebo_ros::Node::Get(_sdf);
 
             // ROS subscription
-            pose_sub_ = node_->create_subscription<geometry_msgs::msg::Pose>("camera_position", 10,
+            pose_sub_ = node_->create_subscription<geometry_msgs::msg::Pose>("camera_position", 1,
                                                                               std::bind(&CameraPositionPlugin::camera_position_callback,
                                                                                         this, std::placeholders::_1));
         }
@@ -42,15 +42,15 @@ namespace oculus_gz_navigator
 
         // If in msg Position I get (0, 0, 1) increment z position 1m. Rotation set directly with msg info. 
         void camera_position_callback(const geometry_msgs::msg::Pose::SharedPtr msg) {
-          ignition::math::Vector3d accel(0, 0, 0); 
+          ignition::math::Vector3d speeds(0, 0, 0); 
           ignition::math::Pose3d pose = link_->WorldPose();
-
-          pose.Pos().X() = pose.Pos().X() + msg->position.x;
-          pose.Pos().Y() = pose.Pos().Y() + msg->position.y;
-          pose.Pos().Z() = pose.Pos().Z() + msg->position.z;
+          float k = 5.0;
+          pose.SetX(pose.Pos().X() + msg->position.x / k);
+          pose.SetY(pose.Pos().Y() + msg->position.y / k);
+          pose.SetZ(pose.Pos().Z());
           link_->SetWorldPose(pose);
 
-          link_->SetLinearVel(accel);
+          link_->SetLinearVel(speeds);
         }
   };
 
