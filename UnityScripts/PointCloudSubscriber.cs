@@ -93,8 +93,8 @@ public class PointCloudSubscriber : MonoBehaviour
     void PCLRendering()
     {
         uint x_start_indx, y_start_indx, z_start_indx, rgb_start_indx;
-        float x, y, z, r, g, b; // Values of positions and color channels
-        int r_offset = 2, g_offset = 1, b_offset = 0;
+        float x, y, z, r, g, b, rgb_max = 255f; // Values of positions and color channels
+        int r_offset = 0, g_offset = 1, b_offset = 2;
 
         for (uint i = 0; i < n_point_per_row; i++)
         {
@@ -108,14 +108,12 @@ public class PointCloudSubscriber : MonoBehaviour
             y = BitConverter.ToSingle(pcl_data, (int) y_start_indx);
             z = BitConverter.ToSingle(pcl_data, (int) z_start_indx);
 
-            r = pcl_data[rgb_start_indx + r_offset];
-            g = pcl_data[rgb_start_indx + g_offset];
-            b = pcl_data[rgb_start_indx + b_offset];
-
-            Debug.Log("Color " + r + ", " + g + ", " + b);
+            r = pcl_data[(int)rgb_start_indx + r_offset] / rgb_max;
+            g = pcl_data[(int)rgb_start_indx + g_offset] / rgb_max;
+            b = pcl_data[(int)rgb_start_indx + b_offset] / rgb_max;
 
             pcl_positions[i] = new Vector3(x, y, z);
-            pcl_colors[i] = new Color(r, g, b);
+            pcl_colors[i] = new Color(r, g, b, 1f);
         } 
     }
 
