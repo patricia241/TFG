@@ -118,7 +118,8 @@ namespace oculus_gz_navigator
         ignition::math::Pose3d pose = link_->WorldPose();
 
         ignition::math::Matrix3 point_global = generate_base_change_matrix() * generate_matrix3_from_point(msg->position.x, msg->position.y, msg->position.z);
-        ignition::math::Vector3d final_result(point_global(0, 2), point_global(1, 2), point_global(2, 2));
+        // ignition::math::Vector3d final_result(point_global(0, 2), point_global(1, 2), point_global(2, 2));
+        ignition::math::Vector3d final_result(point_global(0, 2), point_global(1, 2), 1.6);
         
         pose.Set(final_result, pose.Rot());
 

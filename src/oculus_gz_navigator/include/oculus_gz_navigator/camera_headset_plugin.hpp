@@ -5,10 +5,10 @@
 #include "gazebo_ros/node.hpp"
 #include "geometry_msgs/msg/pose.hpp"
 
-// Plugin pensado para mandarle posiciones de un joystick
+// Plugin pensado para mandarle posiciones del headset  
 namespace oculus_gz_navigator
 {
-  class CameraPositionPlugin : public gazebo::ModelPlugin
+  class CameraHeadsetPlugin : public gazebo::ModelPlugin
   {
 
     public: 
@@ -20,16 +20,10 @@ namespace oculus_gz_navigator
         gazebo_ros::Node::SharedPtr node_;
         // ROS subscriptor
         rclcpp::Subscription<geometry_msgs::msg::Pose>::SharedPtr pose_sub_;
-
-        ignition::math::Matrix3<double> generate_matrix3_from_point(double x, double y, double z);
-
-        ignition::math::Matrix3<double> get_rotation_mat(double roll, double pitch, double yaw);
-
-        ignition::math::Matrix3<double> generate_base_change_matrix();
-
+        
         void camera_position_callback(const geometry_msgs::msg::Pose::SharedPtr msg);
   };
 
-  GZ_REGISTER_MODEL_PLUGIN(CameraPositionPlugin)
+  GZ_REGISTER_MODEL_PLUGIN(CameraHeadsetPlugin)
 
 } // namespace oculus_gz_navigator
