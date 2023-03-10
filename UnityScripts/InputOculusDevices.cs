@@ -5,6 +5,8 @@ using UnityEngine.XR;
 public class InputOculusDevices : MonoBehaviour
 {
     public InputDevice right_controller_;
+    public InputDevice left_controller_;
+    public InputDevice headset_;
 
     // Update is called once per frame
     void Update()
@@ -12,6 +14,14 @@ public class InputOculusDevices : MonoBehaviour
         if (!right_controller_.isValid)
         {
             InitializeInputDevice(InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Right, ref right_controller_);
+        }
+        if (!left_controller_.isValid)
+        {
+            InitializeInputDevice(InputDeviceCharacteristics.Controller | InputDeviceCharacteristics.Left, ref left_controller_);
+        }
+        if (!headset_.isValid)
+        {
+            InitializeInputDevice(InputDeviceCharacteristics.HeadMounted | InputDeviceCharacteristics.TrackedDevice, ref headset_);
         }
     }
 

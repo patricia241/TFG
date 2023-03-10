@@ -12,7 +12,7 @@ public class JoystickPublisher : MonoBehaviour
     private ROS2Node ros2Node;
     private IPublisher<geometry_msgs.msg.Pose> cam_pose_pub;
 
-    private void Start()
+    private void Awake()
     {
         right_controller_ = GetComponent<InputOculusDevices>();
         ros2Unity = GetComponent<ROS2UnityComponent>();
@@ -31,8 +31,11 @@ public class JoystickPublisher : MonoBehaviour
             msg.Position.Y = joystick_pose.y;
             msg.Position.Z = 0;
 
-            cam_pose_pub.Publish(msg);
-            Debug.Log("Joystick Value: " + joystick_pose);
+            if (joystick_pose.x != 0 || joystick_pose.y != 0)
+            {
+                cam_pose_pub.Publish(msg);
+                Debug.Log("Joystick Value: " + joystick_pose);
+            }
         }
     }
 

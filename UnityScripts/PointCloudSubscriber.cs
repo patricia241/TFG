@@ -26,12 +26,11 @@ public class PointCloudSubscriber : MonoBehaviour
     MeshRenderer meshRenderer;
     MeshFilter mf;
 
-    // The size, positions and colours of each of the pointcloud
+    // The size of pointcloud's points
     public float pointSize = 1f;
 
-    public Transform offset; // Put any gameobject that faciliatates adjusting the origin of the pointcloud in VR. 
+    public Transform offset; // Put any gameobject that facilitates adjusting the origin of the pointcloud in VR. 
 
-    // Start is called before the first frame update
     void Awake()
     {
         ros2Unity = GetComponent<ROS2UnityComponent>();
@@ -46,11 +45,7 @@ public class PointCloudSubscriber : MonoBehaviour
         meshRenderer = gameObject.AddComponent<MeshRenderer>();
         mf = gameObject.AddComponent<MeshFilter>();
         meshRenderer.material = new Material(Shader.Find("Custom/PointCloudShader"));
-        mesh = new Mesh
-        {
-            // Use 32 bit integer values for the mesh, allows for stupid amount of vertices (2,147,483,647 I think?)
-            indexFormat = UnityEngine.Rendering.IndexFormat.UInt32
-        };
+        mesh = new Mesh { indexFormat = UnityEngine.Rendering.IndexFormat.UInt32 };
 
         transform.position = offset.position;
         transform.rotation = offset.rotation;
@@ -112,7 +107,7 @@ public class PointCloudSubscriber : MonoBehaviour
             g = pcl_data[(int)rgb_start_indx + g_offset] / rgb_max;
             b = pcl_data[(int)rgb_start_indx + b_offset] / rgb_max;
 
-            pcl_positions[i] = new Vector3(x, y, z);
+            pcl_positions[i] = new Vector3(-1f * x, y, z);
             pcl_colors[i] = new Color(r, g, b, 1f);
         } 
     }

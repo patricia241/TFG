@@ -2,11 +2,11 @@ using ROS2;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class CamScript : MonoBehaviour
 {
     Texture2D texRos;
-    public RawImage display;
+    public RawImage display_lft;
+    public RawImage display_rght;
 
     private ROS2UnityComponent ros2Unity;
     private ROS2Node ros2Node;
@@ -15,16 +15,16 @@ public class CamScript : MonoBehaviour
     private byte[] image_data;
     private bool new_img = false;
 
-    void Start()
+    void Awake()
     {
         ros2Unity = GetComponent<ROS2UnityComponent>();
-        texRos = new Texture2D(1920, 1080, TextureFormat.RGB24, false);
+        texRos = new Texture2D(320, 240, TextureFormat.RGB24, false);
 
-        ros2Node = ros2Unity.CreateNode("ROS2UnityCameraNode");
+        ros2Node = ros2Unity.CreateNode("ROS2UnityImg");
         QualityOfServiceProfile qos = new QualityOfServiceProfile(QosPresetProfile.SENSOR_DATA);
 
         image_sub = ros2Node.CreateSubscription<sensor_msgs.msg.Image>(
-          "/global_camera/image_raw", ImageCallback, qos);
+          "/intel_realsense_r200_depth/image_raw", ImageCallback, qos);
     }
 
     void ImageCallback(sensor_msgs.msg.Image img)
@@ -39,7 +39,9 @@ public class CamScript : MonoBehaviour
             texRos.LoadRawTextureData(image_data);
 
             texRos.Apply();
-            display.texture = texRos;
+            display_lft.texture = texRos;
+            display_rght.texture = texRos;
+            // Graphics.CopyTexture(texRos, layer);
 
             new_img = false;
         }
