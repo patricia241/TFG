@@ -16,9 +16,6 @@ public class HeadsetPublisher : MonoBehaviour
     {
         headset_ = GetComponent<InputOculusDevices>();
         ros2Unity = GetComponent<ROS2UnityComponent>();
-
-        ros2Node = ros2Unity.CreateNode("ROS2UnityHeadsetNode");
-        cam_pose_pub = ros2Node.CreatePublisher<geometry_msgs.msg.Pose>(topic);
     }
 
     private void SendState()
@@ -44,6 +41,12 @@ public class HeadsetPublisher : MonoBehaviour
     {
         if (ros2Unity.Ok())
         {
+            if (ros2Node == null)
+            {
+                ros2Node = ros2Unity.CreateNode("ROS2UnityHeadsetNode");
+                cam_pose_pub = ros2Node.CreatePublisher<geometry_msgs.msg.Pose>(topic);
+            }
+
             SendState();
         }
     }

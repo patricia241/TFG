@@ -16,9 +16,6 @@ public class JoystickPublisher : MonoBehaviour
     {
         right_controller_ = GetComponent<InputOculusDevices>();
         ros2Unity = GetComponent<ROS2UnityComponent>();
-
-        ros2Node = ros2Unity.CreateNode("ROS2UnityJoystickNode");
-        cam_pose_pub = ros2Node.CreatePublisher<geometry_msgs.msg.Pose>("camera_position");
     }
 
     private void SendState()
@@ -43,6 +40,12 @@ public class JoystickPublisher : MonoBehaviour
     {
         if (ros2Unity.Ok())
         {
+            if (ros2Node == null)
+            {
+                ros2Node = ros2Unity.CreateNode("ROS2UnityJoystickNode");
+                cam_pose_pub = ros2Node.CreatePublisher<geometry_msgs.msg.Pose>("camera_position");
+            }
+
             SendState();
         }
     }

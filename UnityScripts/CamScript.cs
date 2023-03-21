@@ -19,21 +19,19 @@ public class CamScript : MonoBehaviour
     {
         ros2Unity = GetComponent<ROS2UnityComponent>();
         texRos = new Texture2D(320, 240, TextureFormat.RGB24, false);
-
-        ros2Node = ros2Unity.CreateNode("ROS2UnityImg");
-        QualityOfServiceProfile qos = new QualityOfServiceProfile(QosPresetProfile.SENSOR_DATA);
-
-        image_sub = ros2Node.CreateSubscription<sensor_msgs.msg.Image>(
-          "/intel_realsense_r200_depth/image_raw", ImageCallback, qos);
     }
 
-    void ImageCallback(sensor_msgs.msg.Image img)
-    {
-        image_data = img.Data;
-        new_img = true;
-    }
     void Update()
     {
+        if (ros2Unity.Ok() && ros2Node == null)
+        {
+            ros2Node = ros2Unity.CreateNode("ROS2UnityImg");
+            QualityOfServiceProfile qos = new QualityOfServiceProfile(QosPresetProfile.SENSOR_DATA);
+
+            image_sub = ros2Node.CreateSubscription<sensor_msgs.msg.Image>(
+              "/intel_realsense_r200_depth/image_raw", ImageCallback, qos);
+        }
+
         if (new_img)
         {
             texRos.LoadRawTextureData(image_data);
@@ -46,5 +44,10 @@ public class CamScript : MonoBehaviour
             new_img = false;
         }
     }
-   
+    void ImageCallback(sensor_msgs.msg.Image img)
+    {
+        image_data = img.Data;
+        new_img = true;
+    }
+
 }

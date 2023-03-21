@@ -34,13 +34,7 @@ public class PointCloudSubscriber : MonoBehaviour
     void Awake()
     {
         ros2Unity = GetComponent<ROS2UnityComponent>();
-
-        ros2Node = ros2Unity.CreateNode("ROS2UnityCameraNode");
-        QualityOfServiceProfile qos = new QualityOfServiceProfile(QosPresetProfile.SENSOR_DATA);
-
-        pcl_sub = ros2Node.CreateSubscription<sensor_msgs.msg.PointCloud2>(
-          topic, PCLCallback, qos);
-
+        
         // Give all the required components to the gameObject
         meshRenderer = gameObject.AddComponent<MeshRenderer>();
         mf = gameObject.AddComponent<MeshFilter>();
@@ -72,6 +66,15 @@ public class PointCloudSubscriber : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ros2Unity.Ok() && ros2Node == null)
+        {
+            ros2Node = ros2Unity.CreateNode("ROS2UnityCameraNode");
+            QualityOfServiceProfile qos = new QualityOfServiceProfile(QosPresetProfile.SENSOR_DATA);
+
+            pcl_sub = ros2Node.CreateSubscription<sensor_msgs.msg.PointCloud2>(
+              topic, PCLCallback, qos);
+        }
+
         if (msg_received)
         {
             PCLRendering();
@@ -105,7 +108,7 @@ public class PointCloudSubscriber : MonoBehaviour
 
             r = pcl_data[(int)rgb_start_indx + r_offset] / rgb_max;
             g = pcl_data[(int)rgb_start_indx + g_offset] / rgb_max;
-            b = pcl_data[(int)rgb_start_indx + b_offset] / rgb_max;
+            b = pcl_data[(int)rgb_start_indx + b_offset] / rgb_max; 
 
             pcl_positions[i] = new Vector3(-1f * x, y, z);
             pcl_colors[i] = new Color(r, g, b, 1f);
