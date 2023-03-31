@@ -1,4 +1,4 @@
-# SISTEMA DE REALIDAD VIRTUAL EN ENTORNOS DE SIMULACIÓN PARA ROBOTS  
+# SISTEMA DE REALIDAD VIRTUAL EN ENTORNOS DE SIMULACIÓN PARA ROBOTS [DEVELOPING]
 
 [![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE.md)
 ![ROS](https://img.shields.io/badge/ros2-humble-brightgreen)
