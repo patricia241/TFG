@@ -1,4 +1,6 @@
-# SISTEMA DE REALIDAD VIRTUAL EN ENTORNOS DE SIMULACIÓN PARA ROBOTS
+# SISTEMA DE REALIDAD VIRTUAL EN ENTORNOS DE SIMULACIÓN PARA ROBOTS  
+
+[![License](https://img.shields.io/badge/license-Apache--2.0-green.svg)](LICENSE.md)
 
 Este proyecto te permitirá introducirte en un mundo en Gazebo con las Oculus Quest 2. Para ello necesitarás:  
 - Unity en Windows 10
