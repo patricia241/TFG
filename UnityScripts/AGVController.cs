@@ -3,6 +3,7 @@ using ROS2;
 using Unity.Robotics.UrdfImporter.Control;
 using static UnityEditor.PlayerSettings;
 using System;
+using Assimp.Configs;
 
 namespace RosSharp.Control
 {
@@ -13,6 +14,8 @@ namespace RosSharp.Control
         public GameObject wheel1;
         public GameObject wheel2;
         public ControlMode mode = ControlMode.ROS;
+        long lastCmdReceived = 0;
+        float ROSTimeout = 0.5f;
 
         private ArticulationBody wA1;
         private ArticulationBody wA2;
@@ -47,6 +50,7 @@ namespace RosSharp.Control
         {
             rosLinear = (float)cmdVel.Linear.X;
             rosAngular = (float)cmdVel.Angular.Z;
+            lastCmdReceived = DateTime.Now.Ticks;
         }
 
         void FixedUpdate()
@@ -71,6 +75,7 @@ namespace RosSharp.Control
 
         private void SetSpeed(ArticulationBody joint, float wheelSpeed = float.NaN)
         {
+            // ArticulationDrive aplies forces and torques to the connected bodies
             ArticulationDrive drive = joint.xDrive;
             if (float.IsNaN(wheelSpeed))
             {
@@ -122,6 +127,16 @@ namespace RosSharp.Control
 
         private void ROSUpdate()
         {
+            // Elapsed ticks since last ROS msg received
+            long elapsedTicks = DateTime.Now.Ticks - lastCmdReceived;
+            TimeSpan elapsedSpan = new TimeSpan(elapsedTicks);
+
+            if (elapsedSpan.TotalSeconds > ROSTimeout)
+            {
+                rosLinear = 0f;
+                rosAngular = 0f;
+            }
+
             RobotInput(rosLinear, -rosAngular);
         }
 
