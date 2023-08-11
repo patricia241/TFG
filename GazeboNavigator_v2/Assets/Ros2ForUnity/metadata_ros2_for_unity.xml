@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<ros2_for_unity>
+   <ros2>humble</ros2>
+   <version>
+      <sha>4b52e06731b96c9769d016c65b30157ad9743cfb</sha>
+      <desc>1.2.0-2-g4b52e06</desc>
+      <date>2023-01-26 11:34:51 +0100</date>
+   </version>
+</ros2_for_unity>
